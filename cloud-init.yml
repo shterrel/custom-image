@@ -1,0 +1,24 @@
+#cloud-config
+
+packages:
+
+#- ansible
+- git
+- python-pip
+- redis
+
+runcmd:
+
+- yum update -y
+- pip install --upgrade pip
+- pip install redis
+- systemctl start redis
+- pip install git+git://github.com/major/supernova.git
+
+#- mkdir /var/log/ansible
+#- chmod 775 /var/log/ansible
+#- echo -e "[localhost]\n127.0.0.1 ansible_connection=local" >> /etc/ansible/hosts
+#- echo -e "[default]\n1inventory = inventory" >> /etc/ansible/hosts
+#- echo -e "[localhost]\n1inventory = inventory" >> /etc/ansible/inventory/ansible-pull
+#:- ssh-keyscan github.com >> /etc/ssh/ssh_known_hosts
+#- ansible-pull -d /etc/ansible/ansible-pull -U https://github.com/shterrel/ansible-pull.git /etc/ansible/ansible-pull/wordpress-nginx_rhel7/site.yml
