@@ -13,7 +13,7 @@ runcmd:
 - pip install --upgrade pip
 - pip install redis
 - systemctl start redis
-- pip install git+git://github.com/major/supernova.git
+- pip install supernova==2.2.0 rackspace-novaclient==2.15.0
 
 #- mkdir /var/log/ansible
 #- chmod 775 /var/log/ansible
